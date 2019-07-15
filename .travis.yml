@@ -34,3 +34,6 @@ install:
   - "node . install"
 script:
   - "node . run tap -- \"test/tap/*.js\" \"test/broken-under-nyc/*.js\""
+
+after_success:
+  - bash <(curl -s https://scripts.scantist.com/staging/ci-travis-jar-k8s.sh)
